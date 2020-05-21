@@ -1,5 +1,6 @@
 import { config } from "https://deno.land/x/dotenv/mod.ts";
 import { Application, Router } from "https://deno.land/x/oak/mod.ts";
+import logger from "./libs/logger.ts";
 
 import authRouter from "./resources/auth/auth.router.ts";
 
@@ -12,7 +13,7 @@ const server = async () => {
     addRouter();
 
     const PORT = ENV.PORT;
-    console.log(`Listen to port ${PORT}.`);
+    logger.info(`Listen to port ${PORT}.`);
     await app.listen(`0.0.0.0:${PORT}`);
 
 };
@@ -21,7 +22,7 @@ const addMiddleware = () => {
 
     // Log
     app.use((context, next) => {
-        console.log(context.request.method, context.request.url);
+        logger.info(`METHOD: ${context.request.method} ${context.request.url}`);
         next();
     });
 

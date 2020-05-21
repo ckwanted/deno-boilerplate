@@ -1,5 +1,6 @@
 .env
 .deno_plugins
+logs
 
 # Created by https://www.gitignore.io/api/git,node,macos,windows,jetbrains
 # Edit at https://www.gitignore.io/?templates=git,node,macos,windows,jetbrains
